@@ -15,8 +15,8 @@ pipeline {
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'git config --global core.sshCommand "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"'
                     sh 'git remote rm origin'
-                    sh 'git remote add origin https://github.com/Ayoubyoup/testmirror.git'
-                    sh 'git push --mirror ssh://git@github.com/Ayoubyoup/testmirror.git'
+                    sh 'git remote add origin git@github.com:Ayoubyoup/testmirror.git'
+                    sh 'git push --mirror'
                 }
             }
         }
