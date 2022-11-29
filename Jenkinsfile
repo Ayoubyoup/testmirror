@@ -16,7 +16,8 @@ pipeline {
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'git remote rm origin'
                     sh 'git remote add origin git@github.com:Ayoubyoup/testmirror.git'
-                    sh 'git push -u origin master'
+                    sh 'git branch -m main'
+                    sh 'git push -u origin main'
                     sh 'git push --mirror'
                 }
             }
