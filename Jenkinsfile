@@ -16,7 +16,7 @@ pipeline {
                     echo "${GIT_USERNAME}"
                     sh 'git remote rm origin'
                     sh "git remote add origin https://github.com/${GIT_USERNAME}/testmirror.git"
-                    sh "git push --mirror https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/mycompany/myrepo.git"
+                    sh "git push --mirror https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/testmirror.git"
                 }
             }
         }
