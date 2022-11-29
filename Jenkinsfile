@@ -14,7 +14,8 @@ pipeline {
                 }
                 sh "git remote rm origin"
                 sh "git remote add origin https://github.com/Ayoubyoup/testmirror.git"
-                sh "git push -–mirror"
+                sh "git push origin --all"
+                sh "git push --tags"
             }
         }
     }
