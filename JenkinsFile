@@ -9,6 +9,6 @@ pipeline {
             sh "git push --mirror https://github.com/Ayoubyoup/testmirror.git"
 
         }
-            }
+        }
     }
 }
