@@ -9,11 +9,10 @@ pipeline {
                 //    sh 'git push --mirror https://github.com/Ayoubyoup/testmirror.git'
                 //}
                 withCredentials([usernamePassword(credentialsId: 'bitbucket-jenkins-user', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                    sh 'git clone --mirror https://bitbucket.org/codeonceteam/testmirroring.git'
+                    sh "git clone --mirror https://${GIT_USERNAME}:${GIT_PASSWORD}@bitbucket.org/codeonceteam/testmirroring.git"
                 }
-
-                sh 'git remote add origin https://github.com/Ayoubyoup/testmirror.git'
-                sh 'git push -–mirror'
+                sh "git remote add origin https://github.com/Ayoubyoup/testmirror.git"
+                sh "git push -–mirror"
             }
         }
     }
