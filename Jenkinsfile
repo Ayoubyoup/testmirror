@@ -12,11 +12,10 @@ pipeline {
                     sh 'rm -rf testmirroring.git'
                     sh "git clone --mirror https://${GIT_USERNAME}:${GIT_PASSWORD}@bitbucket.org/codeonceteam/testmirroring.git"
                 }
-                withCredentials([usernamePassword(credentialsId: 'github-jenkins-user', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                    echo "${GIT_USERNAME}"
+                sshagent(credentials: ['github-jenkins-user']) {
                     sh 'git remote rm origin'
-                    sh "git remote add origin https://github.com/${GIT_USERNAME}/testmirror.git"
-                    sh "git push --mirror https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/testmirror.git"
+                    sh 'git remote add origin https://github.com/Ayoubyoup/testmirror.git'
+                    sh 'git push --mirror'
                 }
             }
         }
