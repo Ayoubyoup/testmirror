@@ -10,7 +10,7 @@ pipeline {
                 //}
                 
                 sh "git remote set-url origin https://github.com/Ayoubyoup/testmirror.git"
-                sh "git push -–mirror"
+                sh "git push -–mirror https://github.com/Ayoubyoup/testmirror.git"
             }
         }
     }
