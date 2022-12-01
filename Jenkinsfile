@@ -14,7 +14,6 @@ pipeline {
                     sh 'git remote set-url --push origin git@github.com:Ayoubyoup/testmirror.git'
                     sh 'rm -fr "/var/lib/jenkins/jobs/testmirror/workspace/.git/rebase-apply"'
                     sh "git rm Jenkinsfile"
-                    sh "git rebase --continue"
                     sh 'git pull --rebase git@github.com:Ayoubyoup/testmirror.git'
                     sh 'git push git@github.com:Ayoubyoup/testmirror.git HEAD:main'
                 }
