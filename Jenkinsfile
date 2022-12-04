@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    triggers { pollSCM('*/5 * * * *') }
 
     stages {
         stage('Mirror') {
@@ -10,9 +11,9 @@ pipeline {
                 }
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'cd testmirroring.git'
-                    sh 'git add .'
-                    sh 'git commit -m "sync"'
-                    sh 'git push -f git@github.com:Ayoubyoup/testmirror.git HEAD:main'
+                    sh 'git remote set-url --push origin git@github.com:Ayoubyoup/testmirror.git'
+                    sh 'git pull --rebase git@github.com:Ayoubyoup/testmirror.git'
+                    sh 'git push git@github.com:Ayoubyoup/testmirror.git HEAD:main'
                 }
             }
         }
