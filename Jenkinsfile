@@ -11,9 +11,7 @@ pipeline {
                 }
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'cd testmirroring.git'
-                    sh 'git remote set-url --push origin git@github.com:Ayoubyoup/testmirror.git'
-                    sh 'git fetch -p origin git@github.com:Ayoubyoup/testmirror.git'
-                    sh 'git push --mirror git@github.com:Ayoubyoup/testmirror.git'
+                    sh 'git push --mirror git@github.com:Ayoubyoup/testmirror.git HEAD:refs/heads/main'
                 }
             }
         }
