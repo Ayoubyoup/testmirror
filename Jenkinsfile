@@ -11,7 +11,7 @@ pipeline {
                 }
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'cd testmirroring.git'
-                    sh 'git push --mirror git@github.com:Ayoubyoup/testmirror.git HEAD:main'
+                    sh 'git push --mirror -f git@github.com:Ayoubyoup/testmirror.git'
                 }
             }
         }
