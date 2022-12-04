@@ -12,6 +12,7 @@ pipeline {
                 }
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'cd testmirroring.git'
+                    sh 'rm -fr "/var/lib/jenkins/jobs/testmirror/workspace/.git/rebase-apply"'
                     sh 'git remote set-url --push origin git@github.com:Ayoubyoup/testmirror.git'
                     sh 'git pull --rebase git@github.com:Ayoubyoup/testmirror.git'
                     sh 'git push git@github.com:Ayoubyoup/testmirror.git HEAD:main'
