@@ -11,6 +11,7 @@ pipeline {
                 }
                 sshagent(credentials: ['github-jenkins-user']) {
                     sh 'cd testmirroring.git'
+                    sh 'git init --bare'
                     sh 'git push --mirror -f git@github.com:Ayoubyoup/testmirror.git'
                 }
             }
